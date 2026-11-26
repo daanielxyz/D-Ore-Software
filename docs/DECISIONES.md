@@ -51,7 +51,7 @@ Capa gratuita para la demo; el proyecto real pasará a un modelo de pago.
 - Fuentes: https://ai.google.dev/gemini-api/docs/pricing y
   https://ai.google.dev/gemini-api/terms
 
-## D-009 · El audio va directo a Gemini — Aceptada (2026-11-26)
+## D-009 · El audio va directo a Gemini — Aceptada (2026-11-26, probado)
 Gemini recibe audio, así que no hace falta otro proveedor de transcripción.
 El modelo devuelve también el texto que entendió, para mostrarlo en la
 confirmación. Formatos admitidos, entre otros: webm, ogg, opus, mp3, wav y m4a
@@ -112,3 +112,15 @@ posterior), en una sola operación: si falta algo, no cambia nada.
 Reemplaza el último punto de D-017. Se eligen productos y salen del stock en la
 misma operación. Una venta sin productos (por ejemplo, un domicilio) sigue siendo
 posible.
+
+## D-019 · Cómo funciona el asistente — Aceptada (2026-11-26)
+Cambia de D-008 el modelo y el uso del SDK.
+- Una sola petición REST a `generateContent` por orden, sin SDK. El catálogo va
+  en las instrucciones y el modelo responde con llamadas a funciones.
+- El backend valida y guarda la propuesta 10 minutos en memoria. Solo
+  `confirm` modifica, una vez y todo o nada.
+- Modelos en orden: `gemini-3.5-flash-lite`, `gemini-3.1-flash-lite`,
+  `gemini-3.8-flash` (`ASSISTANT_GEMINI_MODELS`). Motivo medido ese día: 3.8
+  devolvía 503 por saturación y 3.6 tardó 58 s; los lite, cerca de 1 s.
+- Texto y audio entran por `POST /api/assistant/messages`.
+- El asistente no puede dictar vencimiento al crear un producto.

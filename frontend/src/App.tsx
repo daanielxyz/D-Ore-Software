@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { AssistantPage } from './features/assistant/AssistantPage'
 import { authApi } from './features/auth/api'
 import { LoginPage } from './features/auth/LoginPage'
 import { CustomersPage } from './features/customers/CustomersPage'
@@ -10,6 +11,7 @@ import { SessionExpired } from './http'
 
 const pages = {
   resumen: { title: 'Resumen', Page: SummaryPage },
+  asistente: { title: 'Asistente', Page: AssistantPage },
   pedidos: { title: 'Pedidos', Page: OrdersPage },
   inventario: { title: 'Inventario', Page: InventoryPage },
   clientes: { title: 'Clientes', Page: CustomersPage },

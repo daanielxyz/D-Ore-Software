@@ -31,29 +31,16 @@ La fuente de verdad es el código en `backend/src/main/java/com/dore/inventory/`
 - [x] Login simple.
 - [x] Layout y estilo, reutilizando la paleta del demo.
 
-**Nicolás: asistente**
-- [ ] Mover el prototipo a `backend/.../assistant`.
-- [ ] Herramientas: buscar, crear, modificar, registrar movimiento, desactivar.
-      Al inicio, contra una implementación en memoria de `InventoryService`.
-- [ ] Ciclo de herramientas con la API de Gemini desde Java.
-- [ ] Propuesta → confirmación → ejecución.
-- [ ] Envío de audio a Gemini, mostrando lo que entendió.
-- [ ] Chat con texto y grabación de audio.
-- [ ] Pruebas con las órdenes de ejemplo.
-
-## Revisión de Nicolás (commit 537d60c, revisado el 2026-11-26)
-Compila; solo tiene la prueba de arranque. 28 órdenes de ejemplo: completas.
-- [ ] Usar el contrato real (`com.dore.inventory`): hoy define otro propio
-      (ENTRY/EXIT, unidad como texto, SKU obligatorio, sin lotes).
-- [ ] Pruebas de las reglas del inventario en memoria.
-- [ ] Integración con Gemini, herramientas y confirmación: no hay código aún.
-- [ ] Actualizar su "Estado actual".
-- [x] Unidades `SHEET` (pliego) y `BLOCK` (bloque) añadidas al contrato.
-- El pull request se unió a `main` antes de la revisión.
+**Asistente (lo hace daanielxyz desde el 2026-11-26; Nicolás no pudo continuar)**
+- [x] Herramientas, ciclo con Gemini y propuesta → confirmación → ejecución.
+- [x] Texto y audio, mostrando lo que entendió.
+- [x] Chat con texto, grabación y archivo de audio.
+- [x] 28 órdenes de ejemplo por texto: resultado esperado.
+- [ ] Probar con voces reales, ruido de taller y celular.
 
 ## Fase 2 — Integración
-- [ ] Conectar el asistente al servicio real (ambos).
-- [ ] Que los cambios del asistente se vean en la tabla y el historial (ambos).
+- [x] Asistente conectado al servicio real.
+- [x] Los cambios del asistente quedan en la tabla y el historial.
 - [x] Resumen con datos reales del inventario (inventario, pedidos y ventas).
 - [x] Pedidos que descuentan stock, clientes y ventas (daanielxyz).
 
@@ -82,9 +69,9 @@ Compila; solo tiene la prueba de arranque. 28 órdenes de ejemplo: completas.
 2026-11-26: Fase 0 y backend del inventario listos en la rama
 `feat/base-proyecto` (incluye lotes y vencimientos). El frontend solo lista productos.
 Pantalla de inventario recorrida en navegador (sin probar fechas de
-vencimiento desde la pantalla). Login y resumen listos. Pedidos, clientes y ventas listos (17 pruebas pasan). Venta de mostrador con productos, datos de ejemplo y guion listos. Siguiente:
-finanzas y analítica.
-Siguiente: pantalla de inventario completa.
+vencimiento desde la pantalla). Login y resumen listos. Pedidos, clientes y ventas listos (17 pruebas pasan). Venta de mostrador con productos, datos de ejemplo y guion listos. Asistente funcionando con texto y voz.
+Siguiente: ensayo con voz real, despliegue, y finanzas y analítica.
 
 ### Nicolás
-Sin iniciar.
+Prototipo en `prototipos/asistente/`; sus órdenes de ejemplo se usan para probar.
+Su tarea pasó a daanielxyz el 2026-11-26.

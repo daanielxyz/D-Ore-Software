@@ -29,7 +29,7 @@ export async function http<T>(path: string, method = 'GET', body?: unknown): Pro
   if (!response.ok) {
     // El backend explica las reglas de negocio en "detail" (404 y 409).
     const problem = (await response.json().catch(() => null)) as { detail?: string } | null
-    const explained = response.status === 404 || response.status === 409
+    const explained = [404, 409, 503].includes(response.status)
     throw new Error(
       explained && problem?.detail ? problem.detail : 'No se pudo completar. Revisa los datos.',
     )
