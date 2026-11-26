@@ -56,3 +56,14 @@ Gemini recibe audio, así que no hace falta otro proveedor de transcripción.
 El modelo devuelve también el texto que entendió, para mostrarlo en la
 confirmación. Formatos admitidos, entre otros: webm, ogg, opus, mp3, wav y m4a
 (https://ai.google.dev/gemini-api/docs/audio). Sin probar todavía.
+
+## D-010 · Contrato del inventario — Propuesta (2026-11-26)
+Pendiente de la revisión de Nicolás.
+- Unidades: tallo, ramo, rollo, paquete, unidad. Cantidades enteras.
+- El stock solo cambia con movimientos: entrada, salida, merma o conteo.
+- El stock nunca queda negativo; los cambios simultáneos se serializan.
+- SKU opcional al crear (se genera) y único sin distinguir mayúsculas.
+- El origen (manual o asistente) lo fija el servidor, no el cliente.
+- Sin lotes ni vencimientos por ahora. El usuario de cada movimiento se añade
+  con el login.
+- Los DTOs son los records del paquete `com.dore.inventory`.

@@ -1,0 +1,15 @@
+# Base de datos solo para desarrollo local.
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: dore
+      POSTGRES_USER: dore
+      POSTGRES_PASSWORD: dore
+    ports:
+      - "127.0.0.1:5433:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
