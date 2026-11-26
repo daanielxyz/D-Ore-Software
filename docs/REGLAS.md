@@ -11,6 +11,14 @@
 - Nunca escribir claves, tokens ni datos reales de clientes.
 
 ## Git
+**Para todos los agentes (obligatorio):**
+- El agente puede hacer commits.
+- El agente **nunca** hace push, ni crea o une pull requests, ni hace nada en el
+  repositorio remoto. Eso lo hace la persona.
+- El agente no puede quedar como colaborador: sin `Co-Authored-By`, sin
+  "Generated with ..." y sin cambiar el autor de git.
+
+**Flujo:**
 - Nada directo a `main`: una rama por tarea (`feat/...`, `fix/...`) y pull request.
 - La otra persona revisa antes de unir.
 - Commits pequeños y en español.

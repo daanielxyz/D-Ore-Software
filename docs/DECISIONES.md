@@ -11,7 +11,7 @@ Higgsfield. **Costo:** no se reutiliza el servidor actual, solo diseño y textos
 ## D-002 · Un solo backend modular — Propuesta (2026-11-26)
 Una aplicación Spring Boot separada por funcionalidad, sin microservicios.
 
-## D-003 · Alcance de la demo — Propuesta (2026-11-26)
+## D-003 · Alcance de la demo — Reemplazada por D-012
 Dentro: inventario, asistente, resumen, pedidos, clientes, ventas básicas, login.
 Fuera por ahora: contenido, social listening, analítica avanzada y finanzas.
 
@@ -56,3 +56,59 @@ Gemini recibe audio, así que no hace falta otro proveedor de transcripción.
 El modelo devuelve también el texto que entendió, para mostrarlo en la
 confirmación. Formatos admitidos, entre otros: webm, ogg, opus, mp3, wav y m4a
 (https://ai.google.dev/gemini-api/docs/audio). Sin probar todavía.
+
+## D-010 · Contrato del inventario — Propuesta (2026-11-26)
+Pendiente de la revisión de Nicolás.
+- Unidades: tallo, ramo, rollo, paquete, unidad. Cantidades enteras.
+- El stock solo cambia con movimientos: entrada, salida, merma o conteo.
+- El stock nunca queda negativo; los cambios simultáneos se serializan.
+- SKU opcional al crear (se genera) y único sin distinguir mayúsculas.
+- El origen (manual o asistente) lo fija el servidor, no el cliente.
+- Sin lotes ni vencimientos por ahora. El usuario de cada movimiento se añade
+  con el login.
+- Los DTOs son los records del paquete `com.dore.inventory`.
+
+## D-011 · Lotes y vencimientos — Aceptada (2026-11-26)
+La demo controla vencimiento por lotes. El cliente no lo pidió expresamente; el
+equipo cree que lo necesita. Reemplaza el "sin lotes" de D-010.
+
+## D-012 · La demo incluye todas las pantallas — Aceptada (2026-11-26)
+Además de inventario, asistente, resumen, pedidos, clientes, ventas y login,
+entran contenido, social listening, analítica y finanzas. El inventario y el
+asistente siguen siendo la prioridad.
+
+## D-013 · Reglas de lotes — Propuesta (2026-11-26)
+- Cada entrada crea un lote, con vencimiento opcional. Vence al terminar ese día
+  (hora de Cali).
+- Salidas y mermas toman primero lo que vence antes; se puede indicar un lote.
+- Una salida no toma flor vencida: se da de baja como merma.
+- Un conteo que baja descuenta primero lo que vence antes; si sube, crea un lote.
+- El historial guarda un movimiento por operación, sin detalle por lote.
+
+## D-014 · Unidades pliego y bloque — Aceptada (2026-11-26)
+Se añaden `SHEET` y `BLOCK` a `Unit`.
+
+## D-015 · Login de la demo — Propuesta (2026-11-26)
+- Un solo usuario definido por `APP_USER` y `APP_PASSWORD`; sin clave fija en el
+  código. Sesión por cookie. Sin límite de intentos ni roles.
+- Todo `/api/**` exige sesión, incluido el asistente.
+- Las peticiones que modifican llevan el token CSRF: en el frontend se usa
+  siempre `http()` de `frontend/src/http.ts` (Nicolás también).
+- Los movimientos aún no registran el usuario: solo hay uno.
+
+## D-016 · Pedidos y descuento de inventario — Aceptada (2026-11-26)
+El stock se descuenta al pasar a "En diseño" (o si se salta a un estado
+posterior), en una sola operación: si falta algo, no cambia nada.
+
+## D-017 · Resto de reglas de pedidos y ventas — Aceptada (2026-11-26, ver D-018)
+- Estados: pendiente → en diseño → listo → en camino → entregado. No se
+  devuelven. Cancelar es posible antes de entregar.
+- Cancelar un pedido ya descontado no devuelve stock.
+- Un pedido no se edita: se cancela y se crea otro.
+- La venta del pedido se registra al entregar (aún no hay abonos ni pagos).
+- La venta de mostrador no descuenta inventario.
+
+## D-018 · La venta de mostrador descuenta inventario — Aceptada (2026-11-26)
+Reemplaza el último punto de D-017. Se eligen productos y salen del stock en la
+misma operación. Una venta sin productos (por ejemplo, un domicilio) sigue siendo
+posible.

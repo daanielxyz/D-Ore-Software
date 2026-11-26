@@ -22,7 +22,7 @@ español. Moneda: COP. Zona horaria: America/Bogota.
 - `app/`: demo generado en Higgsfield con un solo prompt. Marca usada: "FLORE".
 - Stack del demo: TypeScript, React 19, TanStack Start, Tailwind, Cloudflare
   Workers con base D1 (SQLite), Bun.
-- `backend/` y `frontend/`: aún no existen.
+- `backend/`: Spring Boot 4.2.0 con PostgreSQL. `frontend/`: React y Vite.
 
 ## Hallazgos del demo (revisión del 2026-11-26)
 Salen de leer el código. **No se ha ejecutado**: Bun no está instalado y la base
