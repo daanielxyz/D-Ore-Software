@@ -44,6 +44,6 @@ class DemoDataTest {
                         tuple("EM-002", 26), tuple("IN-001", 15));
         assertThat(inventory.search("FL-005", false).getFirst().expiredStock()).isEqualTo(4);
         assertThat(orders.list()).hasSize(3);
-        assertThat(sales.recent()).hasSize(4);
+        assertThat(sales.recent()).hasSize(7);
     }
 }

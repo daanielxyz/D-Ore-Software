@@ -124,3 +124,13 @@ Cambia de D-008 el modelo y el uso del SDK.
   devolvía 503 por saturación y 3.6 tardó 58 s; los lite, cerca de 1 s.
 - Texto y audio entran por `POST /api/assistant/messages`.
 - El asistente no puede dictar vencimiento al crear un producto.
+
+## D-020 · Alcance de las pantallas de negocio — Propuesta (2026-11-26)
+Versión sencilla, como el demo original, con datos reales.
+- Finanzas: gastos por categoría y balance del mes (ventas menos gastos). Las
+  compras de inventario no generan gasto solas.
+- Analítica: calculada de ventas, mermas y gastos; sin predicciones. La merma se
+  valora al costo actual del producto.
+- Contenido: calendario manual; no publica en redes.
+- Social listening: menciones anotadas a mano; sin rastreo.
+- No se migraron la lista de tareas ni la pantalla de configuración del demo.
