@@ -84,3 +84,14 @@ asistente siguen siendo la prioridad.
 - Una salida no toma flor vencida: se da de baja como merma.
 - Un conteo que baja descuenta primero lo que vence antes; si sube, crea un lote.
 - El historial guarda un movimiento por operación, sin detalle por lote.
+
+## D-014 · Unidades pliego y bloque — Aceptada (2026-11-26)
+Se añaden `SHEET` y `BLOCK` a `Unit`.
+
+## D-015 · Login de la demo — Propuesta (2026-11-26)
+- Un solo usuario definido por `APP_USER` y `APP_PASSWORD`; sin clave fija en el
+  código. Sesión por cookie. Sin límite de intentos ni roles.
+- Todo `/api/**` exige sesión, incluido el asistente.
+- Las peticiones que modifican llevan el token CSRF: en el frontend se usa
+  siempre `http()` de `frontend/src/http.ts` (Nicolás también).
+- Los movimientos aún no registran el usuario: solo hay uno.

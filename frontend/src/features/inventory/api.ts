@@ -1,4 +1,6 @@
-export type Unit = 'STEM' | 'BUNCH' | 'ROLL' | 'PACKAGE' | 'UNIT'
+import { http } from '../../http'
+
+export type Unit = 'STEM' | 'BUNCH' | 'ROLL' | 'PACKAGE' | 'SHEET' | 'BLOCK' | 'UNIT'
 export type MovementType = 'IN' | 'OUT' | 'WASTE' | 'ADJUSTMENT'
 
 export interface ProductData {
@@ -52,27 +54,8 @@ export interface Lot {
   expired: boolean
 }
 
-async function request<T>(path: string, method = 'GET', body?: unknown): Promise<T> {
-  let response: Response
-  try {
-    response = await fetch(`/api/products${path}`, {
-      method,
-      headers: body ? { 'Content-Type': 'application/json' } : undefined,
-      body: body ? JSON.stringify(body) : undefined,
-    })
-  } catch {
-    throw new Error('No hay conexión con el servidor.')
-  }
-  if (!response.ok) {
-    // El backend explica las reglas de negocio en "detail" (404 y 409).
-    const problem = (await response.json().catch(() => null)) as { detail?: string } | null
-    const explained = response.status === 404 || response.status === 409
-    throw new Error(
-      explained && problem?.detail ? problem.detail : 'No se pudo completar. Revisa los datos.',
-    )
-  }
-  return (response.status === 204 ? undefined : await response.json()) as T
-}
+const request = <T>(path: string, method?: string, body?: unknown) =>
+  http<T>(`/api/products${path}`, method, body)
 
 export const inventoryApi = {
   list: (includeInactive: boolean) => request<Product[]>(`?includeInactive=${includeInactive}`),

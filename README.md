@@ -12,6 +12,10 @@ cd backend && ./mvnw spring-boot:run  # http://localhost:8081
 cd frontend && npm install && npm run dev
 ```
 
+**Entrar:** el usuario es `admin`. Define la clave antes de arrancar el backend
+(`$env:APP_PASSWORD='tu-clave'` en PowerShell, `export APP_PASSWORD=tu-clave` en
+bash). Si no la defines, el backend imprime una temporal al iniciar.
+
 En PowerShell usa `.\mvnw.cmd` en lugar de `./mvnw`.
 
 Pruebas del backend (necesitan Docker): `cd backend && ./mvnw test`.

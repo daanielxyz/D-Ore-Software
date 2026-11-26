@@ -5,6 +5,8 @@ export const unitNames: Record<Unit, string> = {
   BUNCH: 'ramos',
   ROLL: 'rollos',
   PACKAGE: 'paquetes',
+  SHEET: 'pliegos',
+  BLOCK: 'bloques',
   UNIT: 'unidades',
 }
 

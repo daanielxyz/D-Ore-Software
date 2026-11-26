@@ -9,6 +9,10 @@ public enum Unit {
     ROLL,
     /** Paquete */
     PACKAGE,
+    /** Pliego */
+    SHEET,
+    /** Bloque */
+    BLOCK,
     /** Unidad */
     UNIT
 }

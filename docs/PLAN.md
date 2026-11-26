@@ -28,8 +28,8 @@ La fuente de verdad es el código en `backend/src/main/java/com/dore/inventory/`
 **daanielxyz: base y migración**
 - [x] Inventario (backend): crear, editar, desactivar, movimientos, stock bajo.
 - [x] Pantalla de inventario con búsqueda, filtros, lotes e historial.
-- [ ] Login simple.
-- [ ] Layout y estilo, reutilizando la paleta del demo.
+- [x] Login simple.
+- [x] Layout y estilo, reutilizando la paleta del demo.
 
 **Nicolás: asistente**
 - [ ] Mover el prototipo a `backend/.../assistant`.
@@ -48,13 +48,13 @@ Compila; solo tiene la prueba de arranque. 28 órdenes de ejemplo: completas.
 - [ ] Pruebas de las reglas del inventario en memoria.
 - [ ] Integración con Gemini, herramientas y confirmación: no hay código aún.
 - [ ] Actualizar su "Estado actual".
-- [ ] Acordar unidades: sus órdenes usan "pliego" y "bloque", que no existen en `Unit`.
+- [x] Unidades `SHEET` (pliego) y `BLOCK` (bloque) añadidas al contrato.
 - El pull request se unió a `main` antes de la revisión.
 
 ## Fase 2 — Integración
 - [ ] Conectar el asistente al servicio real (ambos).
 - [ ] Que los cambios del asistente se vean en la tabla y el historial (ambos).
-- [ ] Panel de resumen con datos reales (daanielxyz).
+- [x] Resumen con datos reales del inventario (faltan pedidos y ventas).
 - [ ] Pedidos que descuentan stock, clientes y ventas (daanielxyz).
 
 ## Fase 2b — Resto de pantallas (daanielxyz, después del inventario)
@@ -81,7 +81,7 @@ Compila; solo tiene la prueba de arranque. 28 órdenes de ejemplo: completas.
 2026-11-26: Fase 0 y backend del inventario listos en la rama
 `feat/base-proyecto` (incluye lotes y vencimientos). El frontend solo lista productos.
 Pantalla de inventario recorrida en navegador (sin probar fechas de
-vencimiento desde la pantalla). Siguiente: login y resumen.
+vencimiento desde la pantalla). Login y resumen listos. Siguiente: pedidos, clientes y ventas.
 Siguiente: pantalla de inventario completa.
 
 ### Nicolás

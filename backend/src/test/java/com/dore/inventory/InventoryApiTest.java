@@ -3,6 +3,7 @@ package com.dore.inventory;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.assertj.core.api.Assertions.tuple;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -23,6 +24,7 @@ import org.springframework.boot.testcontainers.service.connection.ServiceConnect
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.http.MediaType;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
@@ -30,6 +32,7 @@ import org.testcontainers.postgresql.PostgreSQLContainer;
 
 @SpringBootTest
 @AutoConfigureMockMvc
+@WithMockUser
 @Testcontainers
 class InventoryApiTest {
 
@@ -206,13 +209,13 @@ class InventoryApiTest {
                 {"name":"Hortensia","category":"Flores","unit":"STEM","sku":"hz-1",
                  "minStock":2,"unitCost":9500,"unitPrice":18500,"initialStock":7}
                 """;
-        mvc.perform(post("/api/products").contentType(MediaType.APPLICATION_JSON).content(body))
+        mvc.perform(post("/api/products").with(csrf()).contentType(MediaType.APPLICATION_JSON).content(body))
                 .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.sku").value("HZ-1"))
                 .andExpect(jsonPath("$.stock").value(7));
-        mvc.perform(post("/api/products").contentType(MediaType.APPLICATION_JSON).content(body))
+        mvc.perform(post("/api/products").with(csrf()).contentType(MediaType.APPLICATION_JSON).content(body))
                 .andExpect(status().isConflict());
-        mvc.perform(post("/api/products").contentType(MediaType.APPLICATION_JSON).content("{}"))
+        mvc.perform(post("/api/products").with(csrf()).contentType(MediaType.APPLICATION_JSON).content("{}"))
                 .andExpect(status().isBadRequest());
         mvc.perform(get("/api/products/expiring-lots"))
                 .andExpect(status().isOk());
