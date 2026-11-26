@@ -46,6 +46,12 @@ La fuente de verdad es el código en `backend/src/main/java/com/dore/inventory/`
 - [ ] Panel de resumen con datos reales (daanielxyz).
 - [ ] Pedidos que descuentan stock, clientes y ventas (daanielxyz).
 
+## Fase 2b — Resto de pantallas (daanielxyz, después del inventario)
+- [ ] Finanzas (gastos y balance).
+- [ ] Analítica.
+- [ ] Contenido.
+- [ ] Social listening (menciones registradas a mano, sin rastreo de redes).
+
 ## Fase 3 — Demo
 - [ ] Datos de ejemplo creíbles para una floristería de Cali.
 - [ ] Guion de la demo y ensayo, incluido el micrófono en celular (necesita HTTPS).
@@ -55,7 +61,6 @@ La fuente de verdad es el código en `backend/src/main/java/com/dore/inventory/`
 ## Pendiente de definir
 - Fecha de la demo.
 - Nombre del producto y de la floristería (el demo usa "FLORE"; el repo, "D'Ore").
-- ¿Se manejan lotes y vencimiento de flores?
 - ¿Landing animada del demo: se conserva?
 - Dónde se despliega.
 - Quién paga y administra las claves de IA.

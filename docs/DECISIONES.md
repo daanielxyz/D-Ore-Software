@@ -11,7 +11,7 @@ Higgsfield. **Costo:** no se reutiliza el servidor actual, solo diseño y textos
 ## D-002 · Un solo backend modular — Propuesta (2026-11-26)
 Una aplicación Spring Boot separada por funcionalidad, sin microservicios.
 
-## D-003 · Alcance de la demo — Propuesta (2026-11-26)
+## D-003 · Alcance de la demo — Reemplazada por D-012
 Dentro: inventario, asistente, resumen, pedidos, clientes, ventas básicas, login.
 Fuera por ahora: contenido, social listening, analítica avanzada y finanzas.
 
@@ -67,3 +67,12 @@ Pendiente de la revisión de Nicolás.
 - Sin lotes ni vencimientos por ahora. El usuario de cada movimiento se añade
   con el login.
 - Los DTOs son los records del paquete `com.dore.inventory`.
+
+## D-011 · Lotes y vencimientos — Aceptada (2026-11-26)
+La demo controla vencimiento por lotes. El cliente no lo pidió expresamente; el
+equipo cree que lo necesita. Reemplaza el "sin lotes" de D-010.
+
+## D-012 · La demo incluye todas las pantallas — Aceptada (2026-11-26)
+Además de inventario, asistente, resumen, pedidos, clientes, ventas y login,
+entran contenido, social listening, analítica y finanzas. El inventario y el
+asistente siguen siendo la prioridad.
