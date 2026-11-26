@@ -97,7 +97,7 @@ public class OrderService {
         }
         if (target == OrderStatus.DELIVERED && order.total() > 0) {
             sales.registerForOrder(new NewSale(order.code() + " · " + order.occasion(), order.total(),
-                    order.channel(), null, order.customerId()), id);
+                    order.channel(), null, order.customerId(), null), id);
         }
         orders.updateStatus(id, target, deducted);
         return get(id);

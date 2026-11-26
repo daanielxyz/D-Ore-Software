@@ -1,8 +1,11 @@
 import { useState } from 'react'
 import { Modal } from '../../components/Modal'
+import { emptyLine, suggestedTotal, toItems, type Line } from '../../components/lines'
+import { ProductLines } from '../../components/ProductLines'
 import { useLoad } from '../../components/useLoad'
 import { useSubmit } from '../../components/useSubmit'
 import { channelNames, type Channel } from '../channels'
+import { inventoryApi } from '../inventory/api'
 import { day, money, today } from '../inventory/format'
 import { salesApi } from './api'
 
@@ -63,21 +66,43 @@ export function SalesPage() {
   )
 }
 
+const loadProducts = () => inventoryApi.list(false)
+
 function SaleForm({ onDone }: { onDone: () => void }) {
+  const { data: products, error: loadError } = useLoad(loadProducts)
+  const [lines, setLines] = useState<Line[]>([emptyLine(0)])
   const [description, setDescription] = useState('')
   const [amount, setAmount] = useState('')
   const [channel, setChannel] = useState<Channel>('STORE')
   const [saleDate, setSaleDate] = useState(today())
   const { saving, error, submit } = useSubmit(
-    () => salesApi.register({ description, amount: Number(amount), channel, saleDate, customerId: null }),
+    () =>
+      salesApi.register({
+        description,
+        amount: amount ? Number(amount) : null,
+        channel,
+        saleDate,
+        customerId: null,
+        items: toItems(lines),
+      }),
     onDone,
   )
 
+  if (loadError) return <p className="error" role="alert">{loadError}</p>
+  if (!products) return <p>Cargando…</p>
+
   return (
     <form className="form" onSubmit={submit}>
-      <p className="wide muted">No descuenta inventario: registra la salida en la sección Inventario.</p>
-      <label className="wide">Concepto<input required maxLength={200} value={description} onChange={(e) => setDescription(e.target.value)} /></label>
-      <label>Valor (COP)<input type="number" required min="1" step="1" value={amount} onChange={(e) => setAmount(e.target.value)} /></label>
+      <p className="wide muted">Los productos elegidos se descuentan del inventario.</p>
+      <ProductLines products={products} lines={lines} onChange={setLines} />
+      <label className="wide">
+        Concepto{lines.length > 0 && ' (opcional)'}
+        <input required={lines.length === 0} maxLength={200} value={description} onChange={(e) => setDescription(e.target.value)} />
+      </label>
+      <label>
+        {lines.length > 0 ? `Valor. Vacío: ${money(suggestedTotal(lines, products))}` : 'Valor (COP)'}
+        <input type="number" required={lines.length === 0} min="1" step="1" value={amount} onChange={(e) => setAmount(e.target.value)} />
+      </label>
       <label>
         Canal
         <select value={channel} onChange={(e) => setChannel(e.target.value as Channel)}>

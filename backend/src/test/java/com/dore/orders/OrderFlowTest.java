@@ -16,6 +16,7 @@ import com.dore.inventory.InventoryService;
 import com.dore.inventory.MovementSource;
 import com.dore.inventory.NewProduct;
 import com.dore.inventory.Unit;
+import com.dore.sales.NewSale;
 import com.dore.sales.SaleService;
 import com.dore.shared.BusinessCalendar;
 import com.dore.shared.RuleException;
@@ -86,6 +87,31 @@ class OrderFlowTest {
         assertThat(customers.get(client).totalSpent()).isEqualTo(18_000);
         assertThat(sales.recent()).filteredOn(s -> Long.valueOf(created.id()).equals(s.orderId())).hasSize(1);
         assertThatThrownBy(() -> orders.changeStatus(created.id(), OrderStatus.CANCELLED))
+                .isInstanceOf(RuleException.class);
+    }
+
+    @Test
+    void counterSalesDeductStockAllOrNothing() {
+        long rose = product("Rosa mostrador", 10);
+        long scarce = product("Escaso mostrador", 1);
+
+        sales.register(new NewSale(null, null, SalesChannel.STORE, null, null,
+                List.of(new NewSale.Line(rose, 3))));
+
+        assertThat(stock(rose)).isEqualTo(7);
+        assertThat(sales.recent()).anySatisfy(s -> {
+            assertThat(s.description()).isEqualTo("3 × Rosa mostrador");
+            assertThat(s.amount()).isEqualTo(9_000);
+        });
+
+        int before = sales.recent().size();
+        assertThatThrownBy(() -> sales.register(new NewSale("x", 5_000L, SalesChannel.STORE, null, null,
+                List.of(new NewSale.Line(rose, 2), new NewSale.Line(scarce, 2)))))
+                .isInstanceOf(InventoryRuleException.class);
+        assertThat(stock(rose)).isEqualTo(7);
+        assertThat(sales.recent()).hasSize(before);
+        assertThatThrownBy(() -> sales.register(
+                new NewSale("sin valor", null, SalesChannel.STORE, null, null, List.of())))
                 .isInstanceOf(RuleException.class);
     }
 

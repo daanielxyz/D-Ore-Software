@@ -3,10 +3,11 @@ import type { Channel } from '../channels'
 
 export interface NewSale {
   description: string
-  amount: number
+  amount: number | null
   channel: Channel
   saleDate: string
   customerId: number | null
+  items: { productId: number; quantity: number }[]
 }
 
 export interface Sale {

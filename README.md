@@ -16,6 +16,9 @@ cd frontend && npm install && npm run dev
 (`$env:APP_PASSWORD='tu-clave'` en PowerShell, `export APP_PASSWORD=tu-clave` en
 bash). Si no la defines, el backend imprime una temporal al iniciar.
 
+Para cargar datos ficticios de ejemplo, arranca el backend con
+`APP_DEMO_DATA=true` sobre una base vacía. Guion en `docs/GUION_DEMO.md`.
+
 En PowerShell usa `.\mvnw.cmd` en lugar de `./mvnw`.
 
 Pruebas del backend (necesitan Docker): `cd backend && ./mvnw test`.

@@ -100,10 +100,15 @@ Se añaden `SHEET` y `BLOCK` a `Unit`.
 El stock se descuenta al pasar a "En diseño" (o si se salta a un estado
 posterior), en una sola operación: si falta algo, no cambia nada.
 
-## D-017 · Resto de reglas de pedidos y ventas — Propuesta (2026-11-26)
+## D-017 · Resto de reglas de pedidos y ventas — Aceptada (2026-11-26, ver D-018)
 - Estados: pendiente → en diseño → listo → en camino → entregado. No se
   devuelven. Cancelar es posible antes de entregar.
 - Cancelar un pedido ya descontado no devuelve stock.
 - Un pedido no se edita: se cancela y se crea otro.
 - La venta del pedido se registra al entregar (aún no hay abonos ni pagos).
 - La venta de mostrador no descuenta inventario.
+
+## D-018 · La venta de mostrador descuenta inventario — Aceptada (2026-11-26)
+Reemplaza el último punto de D-017. Se eligen productos y salen del stock en la
+misma operación. Una venta sin productos (por ejemplo, un domicilio) sigue siendo
+posible.

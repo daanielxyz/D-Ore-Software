@@ -29,13 +29,18 @@ class SaleRepository {
                 .query(Integer.class).single() > 0;
     }
 
-    void insert(NewSale sale, LocalDate date, Long orderId) {
-        jdbc.sql("""
+    long insert(String description, long amount, NewSale sale, LocalDate date, Long orderId) {
+        return jdbc.sql("""
                 insert into sale (description, amount, channel, sale_date, customer_id, order_id)
-                values (?,?,?,?,?,?)
+                values (?,?,?,?,?,?) returning id
                 """)
-                .params(sale.description().strip(), sale.amount(), sale.channel().name(), date,
-                        sale.customerId(), orderId)
+                .params(description, amount, sale.channel().name(), date, sale.customerId(), orderId)
+                .query(Long.class).single();
+    }
+
+    void insertItem(long saleId, long productId, int quantity, long unitPrice) {
+        jdbc.sql("insert into sale_item (sale_id, product_id, quantity, unit_price) values (?,?,?,?)")
+                .params(saleId, productId, quantity, unitPrice)
                 .update();
     }
 }

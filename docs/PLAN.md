@@ -64,8 +64,9 @@ Compila; solo tiene la prueba de arranque. 28 órdenes de ejemplo: completas.
 - [ ] Social listening (menciones registradas a mano, sin rastreo de redes).
 
 ## Fase 3 — Demo
-- [ ] Datos de ejemplo creíbles para una floristería de Cali.
-- [ ] Guion de la demo y ensayo, incluido el micrófono en celular (necesita HTTPS).
+- [x] Datos de ejemplo (`APP_DEMO_DATA=true`).
+- [x] Guion (`docs/GUION_DEMO.md`).
+- [ ] Ensayo, incluido el micrófono en celular (necesita HTTPS).
 - [ ] Despliegue.
 - [ ] Retirar `app/` y el CI de Higgsfield.
 
@@ -81,8 +82,8 @@ Compila; solo tiene la prueba de arranque. 28 órdenes de ejemplo: completas.
 2026-11-26: Fase 0 y backend del inventario listos en la rama
 `feat/base-proyecto` (incluye lotes y vencimientos). El frontend solo lista productos.
 Pantalla de inventario recorrida en navegador (sin probar fechas de
-vencimiento desde la pantalla). Login y resumen listos. Pedidos, clientes y ventas listos (17 pruebas pasan). Siguiente: finanzas y
-analítica.
+vencimiento desde la pantalla). Login y resumen listos. Pedidos, clientes y ventas listos (17 pruebas pasan). Venta de mostrador con productos, datos de ejemplo y guion listos. Siguiente:
+finanzas y analítica.
 Siguiente: pantalla de inventario completa.
 
 ### Nicolás

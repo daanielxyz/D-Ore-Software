@@ -1,10 +1,12 @@
 import { useState } from 'react'
+import { emptyLine, suggestedTotal, toItems } from '../../components/lines'
+import { ProductLines } from '../../components/ProductLines'
 import { useLoad } from '../../components/useLoad'
 import { useSubmit } from '../../components/useSubmit'
 import { channelNames, type Channel } from '../channels'
 import { customersApi } from '../customers/api'
 import { inventoryApi } from '../inventory/api'
-import { money, today, unitNames } from '../inventory/format'
+import { money, today } from '../inventory/format'
 import { ordersApi } from './api'
 
 const loadOptions = async () => {
@@ -20,7 +22,7 @@ export function OrderForm({ onDone }: { onDone: () => void }) {
   const [deliveryDate, setDeliveryDate] = useState(today())
   const [total, setTotal] = useState('')
   const [notes, setNotes] = useState('')
-  const [lines, setLines] = useState([{ key: 0, productId: '', quantity: '1' }])
+  const [lines, setLines] = useState([emptyLine(0)])
 
   const { saving, error, submit } = useSubmit(
     () =>
@@ -31,7 +33,7 @@ export function OrderForm({ onDone }: { onDone: () => void }) {
         deliveryDate,
         total: total ? Number(total) : null,
         notes,
-        items: lines.map((l) => ({ productId: Number(l.productId), quantity: Number(l.quantity) })),
+        items: toItems(lines),
       }),
     onDone,
   )
@@ -41,13 +43,7 @@ export function OrderForm({ onDone }: { onDone: () => void }) {
   if (data.customers.length === 0) return <p>Primero registra un cliente en la sección Clientes.</p>
   if (data.products.length === 0) return <p>Primero registra productos en el inventario.</p>
 
-  const suggested = lines.reduce((sum, line) => {
-    const product = data.products.find((p) => p.id === Number(line.productId))
-    return sum + (product?.unitPrice ?? 0) * Number(line.quantity)
-  }, 0)
-
-  const change = (key: number, field: 'productId' | 'quantity', value: string) =>
-    setLines((current) => current.map((l) => (l.key === key ? { ...l, [field]: value } : l)))
+  const suggested = suggestedTotal(lines, data.products)
 
   return (
     <form className="form" onSubmit={submit}>
@@ -76,26 +72,7 @@ export function OrderForm({ onDone }: { onDone: () => void }) {
         <input type="date" required min={today()} value={deliveryDate} onChange={(e) => setDeliveryDate(e.target.value)} />
       </label>
 
-      <fieldset className="wide">
-        <legend>Flores y materiales</legend>
-        {lines.map((line) => (
-          <div className="line" key={line.key}>
-            <select required aria-label="Producto" value={line.productId} onChange={(e) => change(line.key, 'productId', e.target.value)}>
-              <option value="">Elige un producto…</option>
-              {data.products.map((p) => (
-                <option key={p.id} value={p.id}>
-                  {p.name} ({p.stock - p.expiredStock} {unitNames[p.unit]})
-                </option>
-              ))}
-            </select>
-            <input type="number" required min="1" step="1" aria-label="Cantidad" value={line.quantity} onChange={(e) => change(line.key, 'quantity', e.target.value)} />
-            <button type="button" aria-label="Quitar línea" disabled={lines.length === 1} onClick={() => setLines((c) => c.filter((l) => l.key !== line.key))}>✕</button>
-          </div>
-        ))}
-        <button type="button" onClick={() => setLines((c) => [...c, { key: c[c.length - 1].key + 1, productId: '', quantity: '1' }])}>
-          + Agregar producto
-        </button>
-      </fieldset>
+      <ProductLines products={data.products} lines={lines} onChange={setLines} required />
 
       <label className="wide">
         Total a cobrar (COP). Vacío usa la suma: {money(suggested)}
