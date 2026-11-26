@@ -27,7 +27,7 @@ La fuente de verdad es el código en `backend/src/main/java/com/dore/inventory/`
 ## Fase 1 — En paralelo
 **daanielxyz: base y migración**
 - [x] Inventario (backend): crear, editar, desactivar, movimientos, stock bajo.
-- [ ] Pantalla de inventario con búsqueda, filtros e historial.
+- [x] Pantalla de inventario con búsqueda, filtros, lotes e historial.
 - [ ] Login simple.
 - [ ] Layout y estilo, reutilizando la paleta del demo.
 
@@ -40,6 +40,16 @@ La fuente de verdad es el código en `backend/src/main/java/com/dore/inventory/`
 - [ ] Envío de audio a Gemini, mostrando lo que entendió.
 - [ ] Chat con texto y grabación de audio.
 - [ ] Pruebas con las órdenes de ejemplo.
+
+## Revisión de Nicolás (commit 537d60c, revisado el 2026-11-26)
+Compila; solo tiene la prueba de arranque. 28 órdenes de ejemplo: completas.
+- [ ] Usar el contrato real (`com.dore.inventory`): hoy define otro propio
+      (ENTRY/EXIT, unidad como texto, SKU obligatorio, sin lotes).
+- [ ] Pruebas de las reglas del inventario en memoria.
+- [ ] Integración con Gemini, herramientas y confirmación: no hay código aún.
+- [ ] Actualizar su "Estado actual".
+- [ ] Acordar unidades: sus órdenes usan "pliego" y "bloque", que no existen en `Unit`.
+- El pull request se unió a `main` antes de la revisión.
 
 ## Fase 2 — Integración
 - [ ] Conectar el asistente al servicio real (ambos).
@@ -70,7 +80,8 @@ La fuente de verdad es el código en `backend/src/main/java/com/dore/inventory/`
 ### daanielxyz
 2026-11-26: Fase 0 y backend del inventario listos en la rama
 `feat/base-proyecto` (incluye lotes y vencimientos). El frontend solo lista productos.
-Push pendiente.
+Pantalla de inventario recorrida en navegador (sin probar fechas de
+vencimiento desde la pantalla). Siguiente: login y resumen.
 Siguiente: pantalla de inventario completa.
 
 ### Nicolás
