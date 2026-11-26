@@ -1,0 +1,285 @@
+[
+  {
+    "id": "ORD-01",
+    "category": "AGREGAR",
+    "utterance": "Mirá, acaban de llegar 50 tallos de Rosa Freedom roja del proveedor Cultivos La Montaña.",
+    "expectedOutcome": "PENDING_CONFIRMATION",
+    "expectedActionType": "RECORD_MOVEMENT",
+    "expectedSku": "FL-001",
+    "expectedMovementType": "ENTRY",
+    "expectedQuantity": 50,
+    "expectedProjectedStock": 134,
+    "requiresConfirmation": true
+  },
+  {
+    "id": "ORD-02",
+    "category": "AGREGAR",
+    "utterance": "Métele 15 ramos de eucalipto baby blue que trajo el camión esta mañana.",
+    "expectedOutcome": "PENDING_CONFIRMATION",
+    "expectedActionType": "RECORD_MOVEMENT",
+    "expectedSku": "FO-001",
+    "expectedMovementType": "ENTRY",
+    "expectedQuantity": 15,
+    "expectedProjectedStock": 33,
+    "requiresConfirmation": true
+  },
+  {
+    "id": "ORD-03",
+    "category": "AGREGAR",
+    "utterance": "Sumale 24 girasoles San Vicente que compramos temprano para los ramos del día.",
+    "expectedOutcome": "PENDING_CONFIRMATION",
+    "expectedActionType": "RECORD_MOVEMENT",
+    "expectedSku": "FL-005",
+    "expectedMovementType": "ENTRY",
+    "expectedQuantity": 24,
+    "expectedProjectedStock": 54,
+    "requiresConfirmation": true
+  },
+  {
+    "id": "ORD-04",
+    "category": "AGREGAR",
+    "utterance": "Entraron 20 pliegos de papel coreano marfil por pedido a Empaques Nativa.",
+    "expectedOutcome": "PENDING_CONFIRMATION",
+    "expectedActionType": "RECORD_MOVEMENT",
+    "expectedSku": "EM-001",
+    "expectedMovementType": "ENTRY",
+    "expectedQuantity": 20,
+    "expectedProjectedStock": 29,
+    "requiresConfirmation": true
+  },
+  {
+    "id": "ORD-05",
+    "category": "QUITAR",
+    "utterance": "Descontame 12 tallos de Rosa Vendela marfil que salieron para un arreglo de grado en Ciudad Jardín.",
+    "expectedOutcome": "PENDING_CONFIRMATION",
+    "expectedActionType": "RECORD_MOVEMENT",
+    "expectedSku": "FL-002",
+    "expectedMovementType": "EXIT",
+    "expectedQuantity": 12,
+    "expectedProjectedStock": 36,
+    "requiresConfirmation": true
+  },
+  {
+    "id": "ORD-06",
+    "category": "QUITAR",
+    "utterance": "Salieron 5 bloques de espuma floral Oasis para el montaje del hotel en Granada.",
+    "expectedOutcome": "PENDING_CONFIRMATION",
+    "expectedActionType": "RECORD_MOVEMENT",
+    "expectedSku": "IN-001",
+    "expectedMovementType": "EXIT",
+    "expectedQuantity": 5,
+    "expectedProjectedStock": 10,
+    "requiresConfirmation": true
+  },
+  {
+    "id": "ORD-07",
+    "category": "QUITAR_MERMA",
+    "utterance": "Tocó botar 6 tulipanes holandeses porque llegaron con el pétalo quemado por el calor.",
+    "expectedOutcome": "PENDING_CONFIRMATION",
+    "expectedActionType": "RECORD_MOVEMENT",
+    "expectedSku": "FL-003",
+    "expectedMovementType": "WASTE",
+    "expectedQuantity": 6,
+    "expectedProjectedStock": 36,
+    "requiresConfirmation": true
+  },
+  {
+    "id": "ORD-08",
+    "category": "QUITAR_MERMA",
+    "utterance": "Se marchitaron 2 hortensias azules en la cava, registralas como merma.",
+    "expectedOutcome": "PENDING_CONFIRMATION",
+    "expectedActionType": "RECORD_MOVEMENT",
+    "expectedSku": "FL-004",
+    "expectedMovementType": "WASTE",
+    "expectedQuantity": 2,
+    "expectedProjectedStock": 5,
+    "requiresConfirmation": true
+  },
+  {
+    "id": "ORD-09",
+    "category": "AJUSTAR",
+    "utterance": "Hicimos conteo físico de cinta de algodón crudo y en realidad hay 23 rollos en el estante, ajustá el stock.",
+    "expectedOutcome": "PENDING_CONFIRMATION",
+    "expectedActionType": "RECORD_MOVEMENT",
+    "expectedSku": "EM-002",
+    "expectedMovementType": "ADJUSTMENT",
+    "expectedQuantity": 23,
+    "expectedProjectedStock": 23,
+    "requiresConfirmation": true
+  },
+  {
+    "id": "ORD-10",
+    "category": "CREAR",
+    "utterance": "Creame un producto nuevo: Astromelia blanca, categoría Flores, unidad ramo, SKU FL-006, llegaron 20 ramos, stock mínimo 8, costo 3500 pesos, precio de venta 7500 pesos, proveedor Jardines del Cauca.",
+    "expectedOutcome": "PENDING_CONFIRMATION",
+    "expectedActionType": "CREATE_PRODUCT",
+    "expectedSku": "FL-006",
+    "expectedQuantity": 20,
+    "expectedProjectedStock": 20,
+    "requiresConfirmation": true
+  },
+  {
+    "id": "ORD-11",
+    "category": "CREAR",
+    "utterance": "Agregá al catálogo Caja cilíndrica negra mediana en Empaque, unidad unidad, código EM-003, costo 8000, precio 16000, stock mínimo 5, stock inicial 0, proveedor Empaques Nativa.",
+    "expectedOutcome": "PENDING_CONFIRMATION",
+    "expectedActionType": "CREATE_PRODUCT",
+    "expectedSku": "EM-003",
+    "expectedQuantity": 0,
+    "expectedProjectedStock": 0,
+    "requiresConfirmation": true
+  },
+  {
+    "id": "ORD-12",
+    "category": "CREAR_INVALIDO",
+    "utterance": "Registrá un producto nuevo con SKU FL-001 llamado Clavel rojo estándar, categoría Flores, unidad tallo, costo 900, precio 2200, stock 40, mínimo 20, proveedor Cultivos La Montaña.",
+    "expectedOutcome": "VALIDATION_ERROR",
+    "expectedActionType": null,
+    "expectedSku": "FL-001",
+    "requiresConfirmation": false
+  },
+  {
+    "id": "ORD-13",
+    "category": "MODIFICAR",
+    "utterance": "Subile el precio de venta a la Hortensia azul a 21000 pesos y el costo a 10500.",
+    "expectedOutcome": "PENDING_CONFIRMATION",
+    "expectedActionType": "UPDATE_PRODUCT",
+    "expectedSku": "FL-004",
+    "requiresConfirmation": true
+  },
+  {
+    "id": "ORD-14",
+    "category": "MODIFICAR",
+    "utterance": "Cambiále el stock mínimo a la Rosa Freedom roja a 40 tallos por temporada de grados.",
+    "expectedOutcome": "PENDING_CONFIRMATION",
+    "expectedActionType": "UPDATE_PRODUCT",
+    "expectedSku": "FL-001",
+    "requiresConfirmation": true
+  },
+  {
+    "id": "ORD-15",
+    "category": "MODIFICAR",
+    "utterance": "Actualizá el proveedor del Eucalipto Baby Blue a Follajes de la Cumbre.",
+    "expectedOutcome": "PENDING_CONFIRMATION",
+    "expectedActionType": "UPDATE_PRODUCT",
+    "expectedSku": "FO-001",
+    "requiresConfirmation": true
+  },
+  {
+    "id": "ORD-16",
+    "category": "ELIMINAR",
+    "utterance": "Eliminá del catálogo el Tulipán holandés que por temporada ya no vamos a traer más.",
+    "expectedOutcome": "PENDING_CONFIRMATION",
+    "expectedActionType": "DEACTIVATE_PRODUCT",
+    "expectedSku": "FL-003",
+    "requiresConfirmation": true
+  },
+  {
+    "id": "ORD-17",
+    "category": "ELIMINAR",
+    "utterance": "Desactivá el papel coreano marfil, código EM-001, porque el proveedor lo descontinuó.",
+    "expectedOutcome": "PENDING_CONFIRMATION",
+    "expectedActionType": "DEACTIVATE_PRODUCT",
+    "expectedSku": "EM-001",
+    "requiresConfirmation": true
+  },
+  {
+    "id": "ORD-18",
+    "category": "AMBIGUO",
+    "utterance": "Descontame 10 rosas que se vendieron ahorita en mostrador.",
+    "expectedOutcome": "CLARIFICATION_REQUIRED",
+    "expectedActionType": null,
+    "expectedSku": null,
+    "requiresConfirmation": false
+  },
+  {
+    "id": "ORD-19",
+    "category": "AMBIGUO",
+    "utterance": "Llegó pedido nuevo de eucalipto baby blue, metelo al inventario.",
+    "expectedOutcome": "CLARIFICATION_REQUIRED",
+    "expectedActionType": null,
+    "expectedSku": "FO-001",
+    "requiresConfirmation": false
+  },
+  {
+    "id": "ORD-20",
+    "category": "AMBIGUO",
+    "utterance": "Quitá unas flores que salieron malas hoy en la mañana.",
+    "expectedOutcome": "CLARIFICATION_REQUIRED",
+    "expectedActionType": null,
+    "expectedSku": null,
+    "requiresConfirmation": false
+  },
+  {
+    "id": "ORD-21",
+    "category": "AMBIGUO",
+    "utterance": "Creame Lirio oriental rosado en el catálogo para empezar a manejarlo.",
+    "expectedOutcome": "CLARIFICATION_REQUIRED",
+    "expectedActionType": null,
+    "expectedSku": null,
+    "requiresConfirmation": false
+  },
+  {
+    "id": "ORD-22",
+    "category": "PRODUCTO_INEXISTENTE",
+    "utterance": "Descontame 8 varas de orquídea phalaenopsis blanca para un arreglo de aniversario.",
+    "expectedOutcome": "PRODUCT_NOT_FOUND",
+    "expectedActionType": null,
+    "expectedSku": null,
+    "requiresConfirmation": false
+  },
+  {
+    "id": "ORD-23",
+    "category": "PRODUCTO_INEXISTENTE",
+    "utterance": "Cambiále el precio al ruscus italiano a 6500 pesos.",
+    "expectedOutcome": "PRODUCT_NOT_FOUND",
+    "expectedActionType": null,
+    "expectedSku": null,
+    "requiresConfirmation": false
+  },
+  {
+    "id": "ORD-24",
+    "category": "PRODUCTO_INEXISTENTE",
+    "utterance": "Eliminá las cajas acrílicas transparentes del sistema.",
+    "expectedOutcome": "PRODUCT_NOT_FOUND",
+    "expectedActionType": null,
+    "expectedSku": null,
+    "requiresConfirmation": false
+  },
+  {
+    "id": "ORD-25",
+    "category": "CANTIDAD_IMPOSIBLE",
+    "utterance": "Sacame 15 hortensias azules para el matrimonio en Pance.",
+    "expectedOutcome": "IMPOSSIBLE_QUANTITY",
+    "expectedActionType": null,
+    "expectedSku": "FL-004",
+    "requiresConfirmation": false
+  },
+  {
+    "id": "ORD-26",
+    "category": "CANTIDAD_IMPOSIBLE",
+    "utterance": "Registrá una entrada de -10 girasoles San Vicente.",
+    "expectedOutcome": "IMPOSSIBLE_QUANTITY",
+    "expectedActionType": null,
+    "expectedSku": "FL-005",
+    "requiresConfirmation": false
+  },
+  {
+    "id": "ORD-27",
+    "category": "CANTIDAD_IMPOSIBLE",
+    "utterance": "Descontame 0 rollos de cinta de algodón crudo.",
+    "expectedOutcome": "IMPOSSIBLE_QUANTITY",
+    "expectedActionType": null,
+    "expectedSku": "EM-002",
+    "requiresConfirmation": false
+  },
+  {
+    "id": "ORD-28",
+    "category": "CANTIDAD_IMPOSIBLE",
+    "utterance": "Vendimos dos tallos y medio (2.5) de Rosa Freedom roja.",
+    "expectedOutcome": "IMPOSSIBLE_QUANTITY",
+    "expectedActionType": null,
+    "expectedSku": "FL-001",
+    "requiresConfirmation": false
+  }
+]
