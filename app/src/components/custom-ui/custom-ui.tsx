@@ -11,7 +11,7 @@ import { Sidebar } from "@higgsfield/quanta/sidebar";
 import { Typography } from "@higgsfield/quanta/typography";
 import { IconTile } from "@/components/icon-tile";
 import type { IconTileGradient } from "@/components/icon-tile";
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"
 
 export interface NavigationItem {
   id: string;
