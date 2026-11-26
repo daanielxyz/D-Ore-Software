@@ -6,12 +6,13 @@ Duración estimada: 10 minutos (sin ensayar). Todos los datos son ficticios.
 1. Abrir Docker.
 2. Para empezar de cero: `docker compose down -v`. **Borra toda la base local.**
 3. `docker compose up -d`
-4. Backend, en PowerShell, desde `backend/`:
+4. Tener definida `GEMINI_API_KEY`.
+5. Backend, en PowerShell, desde `backend/`:
    ```powershell
    $env:APP_PASSWORD='<clave>'; $env:APP_DEMO_DATA='true'; .\mvnw.cmd spring-boot:run
    ```
-5. Frontend, desde `frontend/`: `npm run dev`
-6. Entrar con `admin` y la clave.
+6. Frontend, desde `frontend/`: `npm run dev`
+7. Entrar con `admin` y la clave.
 
 Las fechas de ejemplo son relativas al día de la carga: cargar el mismo día.
 
@@ -22,8 +23,8 @@ Las fechas de ejemplo son relativas al día de la carga: cargar el mismo día.
 | 2 | Inventario | Filtrar por stock bajo y por vencimiento | Control por lotes de flor fresca |
 | 3 | Inventario | Girasol → Movimiento → Merma, 4, lote vencido | La flor vencida no se puede vender |
 | 4 | Inventario | Abrir Girasol y ver historial | Cada cambio queda registrado |
-| 5 | **Asistente** | "Llegaron 50 tallos de Rosa Freedom" → confirmar | **Pendiente: aún no está construido** |
-| 6 | **Asistente** | Nota de voz: "Se dañaron 3 tulipanes" → confirmar | **Pendiente** |
+| 5 | Asistente | "Llegaron 50 tallos de Rosa Freedom roja" → confirmar | Escribe y el inventario se actualiza, con confirmación |
+| 6 | Asistente | Nota de voz: "Se dañaron 3 tulipanes" → confirmar | También entiende notas de voz |
 | 7 | Pedidos | Pasar el pedido de Valentina a "En diseño" | El inventario se descuenta solo |
 | 8 | Pedidos | Marcar como entregado el pedido de Camila | La venta se registra sola |
 | 9 | Ventas | Venta de mostrador de 5 rosas | También descuenta inventario |

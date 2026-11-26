@@ -32,8 +32,8 @@ antes de que se una a `main`.
 | Zona | Dueño |
 |---|---|
 | `backend/.../inventory`, `orders`, `customers`, `auth` | daanielxyz |
-| `backend/.../assistant` | Nicolás |
-| `frontend/src/features/assistant` | Nicolás |
+| `backend/.../assistant` | daanielxyz (desde 2026-11-26) |
+| `frontend/src/features/assistant` | daanielxyz (desde 2026-11-26) |
 | `prototipos/asistente` | Nicolás |
 | Resto de `frontend/` | daanielxyz |
 | Contrato del inventario y migraciones de base de datos | Compartido: se acuerda antes de cambiar |
