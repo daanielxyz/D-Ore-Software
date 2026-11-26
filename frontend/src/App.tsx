@@ -1,13 +1,19 @@
 import { useEffect, useState } from 'react'
 import { authApi } from './features/auth/api'
 import { LoginPage } from './features/auth/LoginPage'
+import { CustomersPage } from './features/customers/CustomersPage'
 import { InventoryPage } from './features/inventory/InventoryPage'
+import { OrdersPage } from './features/orders/OrdersPage'
+import { SalesPage } from './features/sales/SalesPage'
 import { SummaryPage } from './features/summary/SummaryPage'
 import { SessionExpired } from './http'
 
 const pages = {
   resumen: { title: 'Resumen', Page: SummaryPage },
+  pedidos: { title: 'Pedidos', Page: OrdersPage },
   inventario: { title: 'Inventario', Page: InventoryPage },
+  clientes: { title: 'Clientes', Page: CustomersPage },
+  ventas: { title: 'Ventas', Page: SalesPage },
 }
 type PageId = keyof typeof pages
 

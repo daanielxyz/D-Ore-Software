@@ -34,5 +34,7 @@ export async function http<T>(path: string, method = 'GET', body?: unknown): Pro
       explained && problem?.detail ? problem.detail : 'No se pudo completar. Revisa los datos.',
     )
   }
-  return (response.status === 204 ? undefined : await response.json()) as T
+  // Algunas respuestas (201, 204) no traen contenido.
+  const content = await response.text()
+  return (content ? JSON.parse(content) : undefined) as T
 }

@@ -54,8 +54,8 @@ Compila; solo tiene la prueba de arranque. 28 órdenes de ejemplo: completas.
 ## Fase 2 — Integración
 - [ ] Conectar el asistente al servicio real (ambos).
 - [ ] Que los cambios del asistente se vean en la tabla y el historial (ambos).
-- [x] Resumen con datos reales del inventario (faltan pedidos y ventas).
-- [ ] Pedidos que descuentan stock, clientes y ventas (daanielxyz).
+- [x] Resumen con datos reales del inventario (inventario, pedidos y ventas).
+- [x] Pedidos que descuentan stock, clientes y ventas (daanielxyz).
 
 ## Fase 2b — Resto de pantallas (daanielxyz, después del inventario)
 - [ ] Finanzas (gastos y balance).
@@ -81,7 +81,8 @@ Compila; solo tiene la prueba de arranque. 28 órdenes de ejemplo: completas.
 2026-11-26: Fase 0 y backend del inventario listos en la rama
 `feat/base-proyecto` (incluye lotes y vencimientos). El frontend solo lista productos.
 Pantalla de inventario recorrida en navegador (sin probar fechas de
-vencimiento desde la pantalla). Login y resumen listos. Siguiente: pedidos, clientes y ventas.
+vencimiento desde la pantalla). Login y resumen listos. Pedidos, clientes y ventas listos (17 pruebas pasan). Siguiente: finanzas y
+analítica.
 Siguiente: pantalla de inventario completa.
 
 ### Nicolás

@@ -95,3 +95,15 @@ Se añaden `SHEET` y `BLOCK` a `Unit`.
 - Las peticiones que modifican llevan el token CSRF: en el frontend se usa
   siempre `http()` de `frontend/src/http.ts` (Nicolás también).
 - Los movimientos aún no registran el usuario: solo hay uno.
+
+## D-016 · Pedidos y descuento de inventario — Aceptada (2026-11-26)
+El stock se descuenta al pasar a "En diseño" (o si se salta a un estado
+posterior), en una sola operación: si falta algo, no cambia nada.
+
+## D-017 · Resto de reglas de pedidos y ventas — Propuesta (2026-11-26)
+- Estados: pendiente → en diseño → listo → en camino → entregado. No se
+  devuelven. Cancelar es posible antes de entregar.
+- Cancelar un pedido ya descontado no devuelve stock.
+- Un pedido no se edita: se cancela y se crea otro.
+- La venta del pedido se registra al entregar (aún no hay abonos ni pagos).
+- La venta de mostrador no descuenta inventario.
