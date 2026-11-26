@@ -14,6 +14,8 @@ export interface Product {
   active: boolean
   lowStock: boolean
   updatedAt: string
+  expiredStock: number
+  nextExpiry: string | null
 }
 
 export async function listProducts(signal?: AbortSignal): Promise<Product[]> {

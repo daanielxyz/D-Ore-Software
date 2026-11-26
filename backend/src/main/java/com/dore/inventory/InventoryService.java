@@ -5,6 +5,8 @@ import java.util.List;
 /**
  * Contrato del inventario. La interfaz web y el asistente usan únicamente esto.
  * Todo cambio de stock queda registrado como un movimiento.
+ * El stock se reparte en lotes. Una salida (OUT) nunca toma flor vencida; la
+ * vencida se da de baja con una merma (WASTE).
  */
 public interface InventoryService {
 
@@ -26,4 +28,10 @@ public interface InventoryService {
 
     /** Del más reciente al más antiguo. */
     List<MovementView> movements(long productId);
+
+    /** Lotes con existencias, primero el que vence antes. */
+    List<LotView> lots(long productId);
+
+    /** Lotes de productos activos ya vencidos o que vencen en los próximos días. */
+    List<LotView> expiringLots(int days);
 }

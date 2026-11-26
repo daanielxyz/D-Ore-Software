@@ -1,5 +1,7 @@
 package com.dore.inventory;
 
+import java.time.LocalDate;
+
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -15,5 +17,6 @@ public record NewProduct(
         @Min(0) long unitCost,
         @Min(0) long unitPrice,
         @Size(max = 120) String supplier,
-        @Min(0) int initialStock) {
+        @Min(0) int initialStock,
+        LocalDate initialExpiresOn) {
 }

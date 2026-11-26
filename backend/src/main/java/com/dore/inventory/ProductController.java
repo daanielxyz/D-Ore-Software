@@ -33,6 +33,16 @@ class ProductController {
         return inventory.search(q, includeInactive);
     }
 
+    @GetMapping("/expiring-lots")
+    List<LotView> expiring(@RequestParam(defaultValue = "3") int days) {
+        return inventory.expiringLots(days);
+    }
+
+    @GetMapping("/{id}/lots")
+    List<LotView> lots(@PathVariable long id) {
+        return inventory.lots(id);
+    }
+
     @GetMapping("/{id}")
     ProductView get(@PathVariable long id) {
         return inventory.get(id);

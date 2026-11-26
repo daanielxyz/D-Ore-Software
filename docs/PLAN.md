@@ -20,6 +20,7 @@ La fuente de verdad es el código en `backend/src/main/java/com/dore/inventory/`
 - `GET /api/products?q=&includeInactive=`, `POST /api/products`
 - `GET`, `PUT`, `DELETE /api/products/{id}` (`DELETE` desactiva)
 - `GET`, `POST /api/products/{id}/movements`
+- `GET /api/products/{id}/lots`, `GET /api/products/expiring-lots?days=3`
 - Pendiente (asistente): `POST /api/assistant/messages`,
   `POST /api/assistant/audio`, `POST /api/assistant/actions/{id}/confirm`
 
@@ -68,7 +69,8 @@ La fuente de verdad es el código en `backend/src/main/java/com/dore/inventory/`
 ## Estado actual
 ### daanielxyz
 2026-11-26: Fase 0 y backend del inventario listos en la rama
-`feat/base-proyecto` (7 pruebas pasan). El frontend solo lista productos.
+`feat/base-proyecto` (incluye lotes y vencimientos). El frontend solo lista productos.
+Push pendiente.
 Siguiente: pantalla de inventario completa.
 
 ### Nicolás

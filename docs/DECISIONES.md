@@ -76,3 +76,11 @@ equipo cree que lo necesita. Reemplaza el "sin lotes" de D-010.
 Además de inventario, asistente, resumen, pedidos, clientes, ventas y login,
 entran contenido, social listening, analítica y finanzas. El inventario y el
 asistente siguen siendo la prioridad.
+
+## D-013 · Reglas de lotes — Propuesta (2026-11-26)
+- Cada entrada crea un lote, con vencimiento opcional. Vence al terminar ese día
+  (hora de Cali).
+- Salidas y mermas toman primero lo que vence antes; se puede indicar un lote.
+- Una salida no toma flor vencida: se da de baja como merma.
+- Un conteo que baja descuenta primero lo que vence antes; si sube, crea un lote.
+- El historial guarda un movimiento por operación, sin detalle por lote.

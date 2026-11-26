@@ -1,6 +1,10 @@
 package com.dore.inventory;
 
 import java.time.Instant;
+import java.time.LocalDate;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Objects;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -86,9 +90,33 @@ class Product {
         updatedAt = Instant.now();
     }
 
-    ProductView toView() {
+    /** El stock bajo se calcula sin contar lo vencido. */
+    ProductView toView(List<StockLot> lots, LocalDate today) {
+        int expired = lots.stream().filter(l -> l.expiredOn(today)).mapToInt(StockLot::getQuantity).sum();
+        LocalDate next = lots.stream()
+                .filter(l -> l.getQuantity() > 0 && !l.expiredOn(today))
+                .map(StockLot::getExpiresOn)
+                .filter(Objects::nonNull)
+                .min(Comparator.naturalOrder())
+                .orElse(null);
         return new ProductView(id, sku, name, category, unit, stock, minStock, unitCost,
-                unitPrice, supplier, active, stock <= minStock, updatedAt);
+                unitPrice, supplier, active, stock - expired <= minStock, updatedAt, expired, next);
+    }
+
+    String getName() {
+        return name;
+    }
+
+    String getSku() {
+        return sku;
+    }
+
+    int getStock() {
+        return stock;
+    }
+
+    boolean isActive() {
+        return active;
     }
 
     Long getId() {
