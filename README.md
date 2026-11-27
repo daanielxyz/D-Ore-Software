@@ -27,3 +27,17 @@ En PowerShell usa `.\mvnw.cmd` en lugar de `./mvnw`.
 Pruebas del backend (necesitan Docker): `cd backend && ./mvnw test`.
 
 `app/` es el demo original y queda solo como referencia.
+
+## Despliegue en Render
+Archivos: `Dockerfile` (una imagen con backend y frontend), `deploy/start.sh` y
+`render.yaml` (servicio web y base de datos).
+
+1. Con los cambios en `main`: en Render, **New → Blueprint** y elegir el repositorio.
+2. Escribir en el panel `APP_PASSWORD` (larga: no hay límite de intentos) y
+   `GEMINI_API_KEY`. Nunca en el repositorio.
+3. Usuario: `admin`. Los datos de ejemplo se cargan solo con la base vacía.
+
+El plan está en `render.yaml` (`plan: free`). Si se cambia en el panel, cambiarlo
+también en el archivo. Con el plan gratis la app es muy lenta (ver D-021).
+
+Probar la imagen en local: `docker build -t dore-demo .`

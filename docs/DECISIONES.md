@@ -134,3 +134,12 @@ Versión sencilla, como el demo original, con datos reales.
 - Contenido: calendario manual; no publica en redes.
 - Social listening: menciones anotadas a mano; sin rastreo.
 - No se migraron la lista de tareas ni la pantalla de configuración del demo.
+
+## D-021 · Despliegue de la demo en Render — Propuesta (2026-11-26)
+Una imagen Docker con Spring Boot sirviendo el frontend, y PostgreSQL de Render.
+Medido en local simulando los límites (no en Render):
+- 0,1 CPU y 512 MB (plan gratis): arranque en unos 5 minutos, y con la app ya
+  despierta una pantalla tardó más de 30 s.
+- 0,5 CPU: arranque en 34 s y todo el recorrido pasa, asistente incluido.
+Recomendación: instancia paga mientras se graba y se revisa la demo. La base
+gratuita vence a los 30 días.

@@ -55,7 +55,7 @@ La fuente de verdad es el código en `backend/src/main/java/com/dore/inventory/`
 - [x] Datos de ejemplo (`APP_DEMO_DATA=true`).
 - [x] Guion (`docs/GUION_DEMO.md`).
 - [ ] Ensayo, incluido el micrófono en celular (necesita HTTPS).
-- [ ] Despliegue.
+- [ ] Despliegue (archivos para Render listos y probados en local; falta publicarlo).
 - [ ] Retirar `app/` y el CI de Higgsfield.
 
 ## Pendiente de definir
@@ -74,7 +74,7 @@ vencimiento desde la pantalla). Login y resumen listos. Pedidos, clientes y vent
 El asistente funcionó en el equipo de daanielxyz.
 Finanzas, analítica, contenido y social listening listos en `feat/pantallas`
 (27 pruebas pasan; recorridos en navegador, ancho de celular simulado).
-Siguiente: despliegue y video.
+Siguiente: elegir plan de Render (D-021), publicar y grabar el video.
 
 ### Nicolás
 Prototipo en `prototipos/asistente/`; sus órdenes de ejemplo se usan para probar.

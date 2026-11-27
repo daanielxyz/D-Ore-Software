@@ -1,0 +1,35 @@
+# Despliegue de la demo en Render. Solo datos ficticios.
+# Las variables con "sync: false" se escriben en el panel de Render, nunca aquí.
+databases:
+  - name: dore-db
+    plan: free
+    region: virginia
+    postgresMajorVersion: "17"
+
+services:
+  - type: web
+    name: dore
+    runtime: docker
+    plan: free
+    region: virginia
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/auth/csrf
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: dore-db
+          property: connectionString
+      - key: DB_USER
+        fromDatabase:
+          name: dore-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: dore-db
+          property: password
+      - key: APP_DEMO_DATA
+        value: "true"
+      - key: APP_PASSWORD
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
