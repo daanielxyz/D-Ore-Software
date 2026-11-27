@@ -55,7 +55,7 @@ La fuente de verdad es el código en `backend/src/main/java/com/dore/inventory/`
 - [x] Datos de ejemplo (`APP_DEMO_DATA=true`).
 - [x] Guion (`docs/GUION_DEMO.md`).
 - [ ] Ensayo, incluido el micrófono en celular (necesita HTTPS).
-- [ ] Despliegue (archivos para Render listos y probados en local; falta publicarlo).
+- [x] Despliegue: https://dore-0z6o.onrender.com (cada cambio en `main` lo vuelve a publicar).
 - [ ] Retirar `app/` y el CI de Higgsfield.
 
 ## Pendiente de definir
@@ -74,7 +74,9 @@ vencimiento desde la pantalla). Login y resumen listos. Pedidos, clientes y vent
 El asistente funcionó en el equipo de daanielxyz.
 Finanzas, analítica, contenido y social listening listos en `feat/pantallas`
 (27 pruebas pasan; recorridos en navegador, ancho de celular simulado).
-Siguiente: elegir plan de Render (D-021), publicar y grabar el video.
+Publicado el 2026-11-26: la página responde, usa HTTPS y la API pide sesión
+(sin verificar por el agente: contenido tras entrar y asistente).
+Siguiente: grabar el video el 2026-11-27.
 
 ### Nicolás
 Prototipo en `prototipos/asistente/`; sus órdenes de ejemplo se usan para probar.
