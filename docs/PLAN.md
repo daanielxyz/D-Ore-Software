@@ -21,8 +21,9 @@ La fuente de verdad es el código en `backend/src/main/java/com/dore/inventory/`
 - `GET`, `PUT`, `DELETE /api/products/{id}` (`DELETE` desactiva)
 - `GET`, `POST /api/products/{id}/movements`
 - `GET /api/products/{id}/lots`, `GET /api/products/expiring-lots?days=3`
-- Pendiente (asistente): `POST /api/assistant/messages`,
-  `POST /api/assistant/audio`, `POST /api/assistant/actions/{id}/confirm`
+- Asistente: `POST /api/assistant/messages` (texto o audio),
+  `POST /api/assistant/actions/{id}/confirm`, `DELETE /api/assistant/actions/{id}`
+- Resto: `/api/finance`, `/api/analytics?days=`, `/api/content`, `/api/mentions`
 
 ## Fase 1 — En paralelo
 **daanielxyz: base y migración**
@@ -45,20 +46,20 @@ La fuente de verdad es el código en `backend/src/main/java/com/dore/inventory/`
 - [x] Pedidos que descuentan stock, clientes y ventas (daanielxyz).
 
 ## Fase 2b — Resto de pantallas (daanielxyz, después del inventario)
-- [ ] Finanzas (gastos y balance).
-- [ ] Analítica.
-- [ ] Contenido.
-- [ ] Social listening (menciones registradas a mano, sin rastreo de redes).
+- [x] Finanzas (gastos y balance).
+- [x] Analítica.
+- [x] Contenido.
+- [x] Social listening (menciones registradas a mano, sin rastreo de redes).
 
 ## Fase 3 — Demo
 - [x] Datos de ejemplo (`APP_DEMO_DATA=true`).
 - [x] Guion (`docs/GUION_DEMO.md`).
 - [ ] Ensayo, incluido el micrófono en celular (necesita HTTPS).
-- [ ] Despliegue.
+- [ ] Despliegue (archivos para Render listos y probados en local; falta publicarlo).
 - [ ] Retirar `app/` y el CI de Higgsfield.
 
 ## Pendiente de definir
-- Fecha de la demo.
+- La demo se entrega el 2026-11-27: video grabado y enlace (no es presencial).
 - Nombre del producto y de la floristería (el demo usa "FLORE"; el repo, "D'Ore").
 - ¿Landing animada del demo: se conserva?
 - Dónde se despliega.
@@ -70,7 +71,10 @@ La fuente de verdad es el código en `backend/src/main/java/com/dore/inventory/`
 `feat/base-proyecto` (incluye lotes y vencimientos). El frontend solo lista productos.
 Pantalla de inventario recorrida en navegador (sin probar fechas de
 vencimiento desde la pantalla). Login y resumen listos. Pedidos, clientes y ventas listos (17 pruebas pasan). Venta de mostrador con productos, datos de ejemplo y guion listos. Asistente funcionando con texto y voz.
-Siguiente: ensayo con voz real, despliegue, y finanzas y analítica.
+El asistente funcionó en el equipo de daanielxyz.
+Finanzas, analítica, contenido y social listening listos en `feat/pantallas`
+(27 pruebas pasan; recorridos en navegador, ancho de celular simulado).
+Siguiente: elegir plan de Render (D-021), publicar y grabar el video.
 
 ### Nicolás
 Prototipo en `prototipos/asistente/`; sus órdenes de ejemplo se usan para probar.

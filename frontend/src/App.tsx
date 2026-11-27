@@ -1,9 +1,13 @@
 import { useEffect, useState } from 'react'
+import { AnalyticsPage } from './features/analytics/AnalyticsPage'
 import { AssistantPage } from './features/assistant/AssistantPage'
 import { authApi } from './features/auth/api'
 import { LoginPage } from './features/auth/LoginPage'
+import { ContentPage } from './features/content/ContentPage'
 import { CustomersPage } from './features/customers/CustomersPage'
+import { FinancePage } from './features/finance/FinancePage'
 import { InventoryPage } from './features/inventory/InventoryPage'
+import { ListeningPage } from './features/listening/ListeningPage'
 import { OrdersPage } from './features/orders/OrdersPage'
 import { SalesPage } from './features/sales/SalesPage'
 import { SummaryPage } from './features/summary/SummaryPage'
@@ -16,6 +20,10 @@ const pages = {
   inventario: { title: 'Inventario', Page: InventoryPage },
   clientes: { title: 'Clientes', Page: CustomersPage },
   ventas: { title: 'Ventas', Page: SalesPage },
+  finanzas: { title: 'Finanzas', Page: FinancePage },
+  analitica: { title: 'Analítica', Page: AnalyticsPage },
+  contenido: { title: 'Contenido', Page: ContentPage },
+  escucha: { title: 'Social listening', Page: ListeningPage },
 }
 type PageId = keyof typeof pages
 

@@ -29,11 +29,16 @@ Las fechas de ejemplo son relativas al día de la carga: cargar el mismo día.
 | 8 | Pedidos | Marcar como entregado el pedido de Camila | La venta se registra sola |
 | 9 | Ventas | Venta de mostrador de 5 rosas | También descuenta inventario |
 | 10 | Clientes | Mostrar compras acumuladas | Historial por cliente |
+| 11 | Finanzas | Registrar un gasto de domicilios | Ingresos, gastos y balance del mes |
+| 12 | Analítica | Ventas por día, canales y mermas | Qué se vende y cuánto se pierde |
+| 13 | Contenido | Mostrar el calendario de publicaciones | La marca se planea en el mismo lugar |
+| 14 | Social listening | Marcar una mención como atendida | Ninguna intención de compra se pierde |
 
 ## Qué no prometer
 - Un solo usuario, sin roles.
 - Sin pagos, abonos ni facturación electrónica.
-- Finanzas, analítica, contenido y social listening: aún no están.
+- Contenido no publica en redes; social listening no las rastrea: se anota a mano.
+- Finanzas no es contabilidad: solo suma ventas y gastos anotados.
 
 ## Antes de presentar
 - [ ] Ensayo completo con datos recién cargados.
