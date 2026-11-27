@@ -8,31 +8,17 @@ español. Moneda: COP. Zona horaria: America/Bogota.
 grabado recorriendo la página y el enlace de la demo. No es presencial.
 
 ## Marca
-El logo dice **"D'Orée Floristería"**. La interfaz y los documentos todavía dicen
-"D'Ore" (`App.tsx`, `LoginPage.tsx`, `index.html`, `README.md`).
+El logo dice **"D'Orée Floristería"**, y así lo muestra la interfaz (D-025). El
+repositorio y el código conservan "dore". El manual de marca está en
+`redesign/DOree_Brandbook_v2.png` (en el equipo de daanielxyz, sin subir a git).
 
 Logos en `redesign/images/` (en el equipo de daanielxyz, **sin subir a git**):
 - `Logotipo floral D’Orée en dorado.png`: 1536×1024, fondo blanco, 1,9 MB.
 - `Logotipo floral D’Orée en dorado transparente.png`: mismo tamaño, esquinas
   transparentes y un halo de color alrededor (sin probar sobre fondo claro), 2,3 MB.
 
-Hay que reducirlos antes de usarlos en la web y copiarlos dentro de `frontend/`
-(la imagen Docker no incluye `redesign/`).
-
-Colores medidos en el logo de fondo blanco (aproximados; punto de partida, no la
-paleta final):
-
-| Zona | Color |
-|---|---|
-| Letras doradas | `#C88808` |
-| Texto "Floristería" (verde) | `#185818` |
-| Hojas | `#598501` |
-| Fucsia | `#FB3EB6` |
-| Naranja | `#FD5E02` |
-| Amarillo | `#FDDD13` |
-| Morado | `#8A1EA0` |
-
-El dorado sobre blanco tiene contraste cercano a 3:1: no sirve para texto pequeño.
+Las versiones reducidas que usa la web están en `frontend/public/` (`logo.webp`,
+`favicon.png`, `apple-touch-icon.png`).
 
 ## Prioridades
 1. **Manejo de inventario funcional** (lo más importante).
@@ -62,9 +48,8 @@ El dorado sobre blanco tiene contraste cercano a 3:1: no sirve para texto peque�
   content, listening, demo.
 - `frontend/`: React, Vite y TypeScript. Una carpeta por pantalla en
   `src/features/`; navegación por hash en `App.tsx`.
-- Estilos: todo en `frontend/src/index.css`, con variables en `:root` (hay además
-  colores sueltos, como `#fff` y los fondos de `.tag`). La fuente `Outfit` está
-  declarada pero no se carga: se ve la del sistema si el equipo no la tiene.
+- Estilos: todo en `frontend/src/index.css`, con los colores de marca como
+  variables en `:root`. La fuente Outfit se empaqueta con la aplicación.
 - Pantallas: resumen, asistente, pedidos, inventario, clientes, ventas, finanzas,
   analítica, contenido, social listening y login.
 - Publicado en https://dore-0z6o.onrender.com (Render, usuario `admin`). Cada

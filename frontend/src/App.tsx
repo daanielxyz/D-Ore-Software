@@ -71,7 +71,7 @@ export default function App() {
   return (
     <div className="shell">
       <aside className="sidebar">
-        <strong className="brand">D'Ore</strong>
+        <img className="brand" src="/logo.webp" alt="D'Orée Floristería" width={640} height={531} />
         <nav>
           {Object.entries(pages).map(([id, { title }]) => (
             <a key={id} href={`#${id}`} className={id === page ? 'current' : ''} aria-current={id === page ? 'page' : undefined}>

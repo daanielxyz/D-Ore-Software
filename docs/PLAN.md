@@ -60,8 +60,8 @@ La fuente de verdad es el código en `backend/src/main/java/com/dore/inventory/`
 
 ## Fase 4 — Rediseño y entrega (2026-11-27, antes de las 4 p. m.)
 Horario propuesto, con margen:
-- [ ] Hasta 12:45: paleta a partir del logo, mostrada en una pantalla para aprobar.
-- [ ] Hasta 13:45: aplicarla a todas las pantallas y al login, con logo y favicon;
+- [x] Hasta 12:45: paleta a partir del logo, mostrada en una pantalla para aprobar.
+- [x] Hasta 13:45: aplicarla a todas las pantallas y al login, con logo y favicon;
       revisar en computador y ancho de celular; `npm run build` y `npm run lint`.
 - [ ] Hasta 14:15: commit, publicar la rama, unir a `main` y comprobar el enlace.
 - [ ] Hasta 15:15: ensayo en local y grabación.
@@ -71,7 +71,6 @@ Solo cambios visuales: sin tocar funciones, backend ni base de datos. Si a las
 14:15 no está listo, se publica lo que esté estable o se graba con lo ya publicado.
 
 ## Pendiente de definir
-- Si la interfaz pasa a decir "D'Orée" (D-023).
 - ¿Landing animada del demo: se conserva?
 - Quién paga y administra las claves de IA.
 - Plan de Render: si se cambió a pago en el panel, ajustar `render.yaml`.
@@ -92,6 +91,10 @@ Publicado el 2026-11-26: la página responde, usa HTTPS y la API pide sesión
 sin empezar. Documentos listos para seguir en un chat nuevo, en la rama
 `docs/despliegue` (sin publicar).
 Siguiente: Fase 4.
+2026-11-27, 13:45: rediseño con el manual de marca (D-024) en `feat/rediseno`.
+Build, lint y paso de frontend de Docker correctos. Pantallas y login recorridos
+en navegador con datos de ejemplo, en computador y ancho de celular simulado.
+Sin publicar y sin probar en un teléfono real.
 
 ### Nicolás
 Prototipo en `prototipos/asistente/`; sus órdenes de ejemplo se usan para probar.

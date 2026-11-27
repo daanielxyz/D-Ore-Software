@@ -1,4 +1,4 @@
-# D'Ore
+# D'Orée
 
 Demo de un SaaS de inventario para una floristería. Contexto, reglas, plan y
 decisiones en `docs/`.

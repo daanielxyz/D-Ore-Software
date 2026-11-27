@@ -69,7 +69,7 @@ export function OrdersPage() {
                     <td>{money(order.total)}</td>
                     <td>
                       {closed ? (
-                        <span className="tag">{statusNames[order.status]}</span>
+                        <span className={order.status === 'DELIVERED' ? 'tag ok' : 'tag'}>{statusNames[order.status]}</span>
                       ) : (
                         <select
                           aria-label={`Estado de ${order.code}`}

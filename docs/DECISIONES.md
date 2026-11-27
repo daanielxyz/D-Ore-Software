@@ -151,3 +151,13 @@ negocio. Reemplaza la paleta heredada del demo original.
 ## D-023 · Nombre visible "D'Orée" — Propuesta (2026-11-27)
 Usar en la interfaz el nombre como aparece en el logo, "D'Orée Floristería". El
 repositorio y el código conservan "dore".
+
+## D-024 · Manual de marca v1.0 — Aceptada (2026-11-27)
+La interfaz sigue el manual de marca entregado por daanielxyz (concreta D-022):
+rosa orquídea `#B8336A` para acciones, rosa vino `#7A1F45` para títulos y cifras,
+dorado `#C88808` solo decorativo, base blanco cálido, tipografía Outfit (ahora
+incluida con `@fontsource-variable/outfit`). Los valores viven en las variables
+de `frontend/src/index.css`.
+
+## D-025 · Nombre visible "D'Orée" — Aceptada (2026-11-27)
+Reemplaza a D-023, que era propuesta.
