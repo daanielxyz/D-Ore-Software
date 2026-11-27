@@ -161,3 +161,21 @@ de `frontend/src/index.css`.
 
 ## D-025 · Nombre visible "D'Orée" — Aceptada (2026-11-27)
 Reemplaza a D-023, que era propuesta.
+
+## D-026 · Marco y sistema visual de la interfaz — Aceptada (2026-11-27)
+Sobre el manual de marca (D-024): escala rosada cálida con capas distinguibles,
+barra superior color vino, menú de íconos que se abre por encima del contenido
+(cajón en celular), grupos Taller, Negocio y Marca, y accesos en Resumen. Ajusta
+el manual en el fondo (más oscuro que el blanco cálido) y en el menú.
+Pendiente: tema oscuro, calendario propio, tablas como tarjetas, paginador, chips
+de filtros, esqueletos y "Reintentar" en todas las pantallas.
+
+## D-027 · Videos en el inicio de sesión — Aceptada (2026-11-27)
+Un video horizontal y otro vertical en `frontend/public/login/`, también en
+celular, con botón de pausa; no se reproducen solos si el equipo pide menos
+movimiento. Comprimidos a 720p sin audio: 1,5 y 1,7 MB (originales de 8 y 9 MB).
+
+## D-028 · Menú animado y video siempre activos — Aceptada (2026-11-27)
+Cambia parte de D-027. El video del login no tiene botón de pausa y se reproduce
+siempre. El menú y el cajón se animan aunque el sistema pida reducir el
+movimiento. Costo: se aparta de las pautas de accesibilidad sobre movimiento.

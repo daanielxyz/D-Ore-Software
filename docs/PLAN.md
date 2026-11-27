@@ -95,6 +95,9 @@ Siguiente: Fase 4.
 Build, lint y paso de frontend de Docker correctos. Pantallas y login recorridos
 en navegador con datos de ejemplo, en computador y ancho de celular simulado.
 Sin publicar y sin probar en un teléfono real.
+2026-11-27, 14:20: segundo rediseño (D-026) y videos del login (D-027) en
+`feat/rediseno-ui`, aprobado por daanielxyz. Pantallas revisadas a 1280, 1024 y
+390 px simulados. Siguiente: publicar, grabar y enviar.
 
 ### Nicolás
 Prototipo en `prototipos/asistente/`; sus órdenes de ejemplo se usan para probar.
