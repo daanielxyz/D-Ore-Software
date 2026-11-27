@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useSubmit } from '../../components/useSubmit'
 import { SessionExpired } from '../../http'
 import { authApi } from './api'
+import { LoginBackground } from './LoginBackground'
 
 export function LoginPage({ onLogin }: { onLogin: () => void }) {
   const [username, setUsername] = useState('')
@@ -16,9 +17,12 @@ export function LoginPage({ onLogin }: { onLogin: () => void }) {
   }, onLogin)
 
   return (
-    <div className="login">
+    <div className="login with-video">
+      <LoginBackground />
       <form className="panel" onSubmit={submit}>
-        <h1>D'Ore</h1>
+        <h1>
+          <img src="/logo.webp" alt="D'Orée Floristería" width={640} height={531} />
+        </h1>
         <label>
           Usuario
           <input required autoComplete="username" value={username} onChange={(e) => setUsername(e.target.value)} />

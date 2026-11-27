@@ -55,15 +55,26 @@ La fuente de verdad es el código en `backend/src/main/java/com/dore/inventory/`
 - [x] Datos de ejemplo (`APP_DEMO_DATA=true`).
 - [x] Guion (`docs/GUION_DEMO.md`).
 - [ ] Ensayo, incluido el micrófono en celular (necesita HTTPS).
-- [ ] Despliegue (archivos para Render listos y probados en local; falta publicarlo).
+- [x] Despliegue: https://dore-0z6o.onrender.com (cada cambio en `main` lo vuelve a publicar).
 - [ ] Retirar `app/` y el CI de Higgsfield.
 
+## Fase 4 — Rediseño y entrega (2026-11-27, antes de las 4 p. m.)
+Horario propuesto, con margen:
+- [x] Hasta 12:45: paleta a partir del logo, mostrada en una pantalla para aprobar.
+- [x] Hasta 13:45: aplicarla a todas las pantallas y al login, con logo y favicon;
+      revisar en computador y ancho de celular; `npm run build` y `npm run lint`.
+- [ ] Hasta 14:15: commit, publicar la rama, unir a `main` y comprobar el enlace.
+- [ ] Hasta 15:15: ensayo en local y grabación.
+- [ ] Antes de 15:45: enviar video, enlace, usuario y contraseña.
+
+Solo cambios visuales: sin tocar funciones, backend ni base de datos. Si a las
+14:15 no está listo, se publica lo que esté estable o se graba con lo ya publicado.
+
 ## Pendiente de definir
-- La demo se entrega el 2026-11-27: video grabado y enlace (no es presencial).
-- Nombre del producto y de la floristería (el demo usa "FLORE"; el repo, "D'Ore").
 - ¿Landing animada del demo: se conserva?
-- Dónde se despliega.
 - Quién paga y administra las claves de IA.
+- Plan de Render: si se cambió a pago en el panel, ajustar `render.yaml`.
+- D-020 y D-021 siguen como propuestas.
 
 ## Estado actual
 ### daanielxyz
@@ -74,7 +85,19 @@ vencimiento desde la pantalla). Login y resumen listos. Pedidos, clientes y vent
 El asistente funcionó en el equipo de daanielxyz.
 Finanzas, analítica, contenido y social listening listos en `feat/pantallas`
 (27 pruebas pasan; recorridos en navegador, ancho de celular simulado).
-Siguiente: elegir plan de Render (D-021), publicar y grabar el video.
+Publicado el 2026-11-26: la página responde, usa HTTPS y la API pide sesión
+(sin verificar por el agente: contenido tras entrar y asistente).
+2026-11-27: se decidió rediseñar con los colores del logo antes de grabar; aún
+sin empezar. Documentos listos para seguir en un chat nuevo, en la rama
+`docs/despliegue` (sin publicar).
+Siguiente: Fase 4.
+2026-11-27, 13:45: rediseño con el manual de marca (D-024) en `feat/rediseno`.
+Build, lint y paso de frontend de Docker correctos. Pantallas y login recorridos
+en navegador con datos de ejemplo, en computador y ancho de celular simulado.
+Sin publicar y sin probar en un teléfono real.
+2026-11-27, 14:20: segundo rediseño (D-026) y videos del login (D-027) en
+`feat/rediseno-ui`, aprobado por daanielxyz. Pantallas revisadas a 1280, 1024 y
+390 px simulados. Siguiente: publicar, grabar y enviar.
 
 ### Nicolás
 Prototipo en `prototipos/asistente/`; sus órdenes de ejemplo se usan para probar.

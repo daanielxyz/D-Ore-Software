@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { Icon } from '../../components/icons'
+import { navGroups } from '../../components/navigation'
 import { inventoryApi, type Product } from '../inventory/api'
 import { day, expiresSoon, money, today, unitNames } from '../inventory/format'
 import { ordersApi, statusNames, type Order } from '../orders/api'
@@ -64,6 +66,7 @@ export function SummaryPage() {
   return (
     <>
       <h1>Resumen</h1>
+      <p className="greeting">Hola. Esto es lo que pasa hoy en el taller.</p>
       <div className="cards">
         {card('Ventas del mes', money(monthSales))}
         {card('Pedidos por entregar', open.length)}
@@ -88,6 +91,19 @@ export function SummaryPage() {
         {section('Hay que reponer', low, (p) => `${p.stock - p.expiredStock} de mínimo ${p.minStock} ${unitNames[p.unit]}`)}
         {section('Vence pronto', soon, (p) => (p.nextExpiry ? `el ${day(p.nextExpiry)}` : ''))}
         {section('Dar de baja', expired, (p) => `${p.expiredStock} ${unitNames[p.unit]} vencidos`)}
+      </div>
+      <h2 className="access-title">Ir a</h2>
+      <div className="access">
+        {navGroups
+          .flatMap((group) => [...group.items])
+          .filter((item) => item.id !== 'resumen')
+          .map((item) => (
+            <a key={item.id} href={`#${item.id}`}>
+              <Icon name={item.id} />
+              <strong>{item.title}</strong>
+              <small>{item.description}</small>
+            </a>
+          ))}
       </div>
     </>
   )

@@ -4,6 +4,22 @@
 Demo de un SaaS para una floristería en Cali (Colombia). Idioma de la interfaz:
 español. Moneda: COP. Zona horaria: America/Bogota.
 
+**Entrega: 2026-11-27 antes de las 4 p. m.** Se envía al cliente un video
+grabado recorriendo la página y el enlace de la demo. No es presencial.
+
+## Marca
+El logo dice **"D'Orée Floristería"**, y así lo muestra la interfaz (D-025). El
+repositorio y el código conservan "dore". El manual de marca está en
+`redesign/DOree_Brandbook_v2.png` (en el equipo de daanielxyz, sin subir a git).
+
+Logos en `redesign/images/` (en el equipo de daanielxyz, **sin subir a git**):
+- `Logotipo floral D’Orée en dorado.png`: 1536×1024, fondo blanco, 1,9 MB.
+- `Logotipo floral D’Orée en dorado transparente.png`: mismo tamaño, esquinas
+  transparentes y un halo de color alrededor (sin probar sobre fondo claro), 2,3 MB.
+
+Las versiones reducidas que usa la web están en `frontend/public/` (`logo.webp`,
+`favicon.png`, `apple-touch-icon.png`).
+
 ## Prioridades
 1. **Manejo de inventario funcional** (lo más importante).
 2. **Asistente de IA** para agregar, quitar, modificar y eliminar inventario con
@@ -14,15 +30,37 @@ español. Moneda: COP. Zona horaria: America/Bogota.
 ## Equipo
 | Persona | Responsabilidad |
 |---|---|
-| daanielxyz | Revisión del demo, base nueva y migración |
-| Nicolás | Asistente de IA del inventario |
+| daanielxyz | Todo, incluido el asistente (desde 2026-11-26) |
+| Nicolás | Sin tareas por ahora; hizo el prototipo en `prototipos/asistente/` |
+
+## Cómo trabajamos
+- Hablar en español.
+- daanielxyz publica ramas y hace los pull requests con GitHub Desktop; el agente
+  solo hace commits locales (ver `REGLAS.md`) y explica los pasos.
 
 ## Estado del código
 - Repo: `daanielxyz/D-Ore-Software`.
 - `app/`: demo generado en Higgsfield con un solo prompt. Marca usada: "FLORE".
 - Stack del demo: TypeScript, React 19, TanStack Start, Tailwind, Cloudflare
   Workers con base D1 (SQLite), Bun.
-- `backend/`: Spring Boot 4.2.0 con PostgreSQL. `frontend/`: React y Vite.
+- `backend/`: Java 21, Spring Boot 4.2.0, PostgreSQL y Flyway. Paquetes:
+  inventory, assistant, auth, orders, customers, sales, finance, analytics,
+  content, listening, demo.
+- `frontend/`: React, Vite y TypeScript. Una carpeta por pantalla en
+  `src/features/`; navegación por hash en `App.tsx`.
+- Estilos: todo en `frontend/src/index.css`, con los colores de marca como
+  variables en `:root`. La fuente Outfit se empaqueta con la aplicación.
+- Pantallas: resumen, asistente, pedidos, inventario, clientes, ventas, finanzas,
+  analítica, contenido, social listening y login.
+- Publicado en https://dore-0z6o.onrender.com (Render, usuario `admin`). Cada
+  cambio en `main` vuelve a publicar. Datos de ejemplo cargados el 2026-11-26;
+  volver a publicar no los recarga. Plan elegido en Render: sin confirmar.
+
+## Equipo local
+- Windows 11, Java 21, Node 24 y Docker Desktop. No hay `gh` ni `bun`.
+- Puertos: base 5433, backend 8081, Vite 5173.
+- Si el backend no encuentra `GEMINI_API_KEY` (variable de usuario), reiniciar las
+  aplicaciones desde las que se abre la terminal.
 
 ## Hallazgos del demo (revisión del 2026-11-26)
 Salen de leer el código. **No se ha ejecutado**: Bun no está instalado y la base
