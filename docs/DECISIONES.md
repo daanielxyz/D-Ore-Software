@@ -143,3 +143,11 @@ Medido en local simulando los límites (no en Render):
 - 0,5 CPU: arranque en 34 s y todo el recorrido pasa, asistente incluido.
 Recomendación: instancia paga mientras se graba y se revisa la demo. La base
 gratuita vence a los 30 días.
+
+## D-022 · Rediseño con la paleta del logo — Aceptada (2026-11-27)
+Antes de grabar, el SaaS se rediseña con una paleta creada a partir del logo del
+negocio. Reemplaza la paleta heredada del demo original.
+
+## D-023 · Nombre visible "D'Orée" — Propuesta (2026-11-27)
+Usar en la interfaz el nombre como aparece en el logo, "D'Orée Floristería". El
+repositorio y el código conservan "dore".

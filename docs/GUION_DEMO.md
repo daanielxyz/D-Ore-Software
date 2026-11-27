@@ -34,6 +34,16 @@ Las fechas de ejemplo son relativas al día de la carga: cargar el mismo día.
 | 13 | Contenido | Mostrar el calendario de publicaciones | La marca se planea en el mismo lugar |
 | 14 | Social listening | Marcar una mención como atendida | Ninguna intención de compra se pierde |
 
+## Grabar sobre la demo publicada
+- **Ensayar en local, no en el enlace:** lo que se cambia queda guardado y un
+  pedido no puede volver a un estado anterior.
+- Los datos se cargaron el 2026-11-26: los pedidos de Valentina y Camila, que eran
+  "para hoy", aparecen con fecha del 26.
+- Si está en el plan gratis, abrir el enlace varios minutos antes.
+- Probar antes el asistente y el micrófono (Cancelar no cambia datos).
+- No unir nada a `main` mientras se graba.
+- Enviar el enlace después de grabar.
+
 ## Qué no prometer
 - Un solo usuario, sin roles.
 - Sin pagos, abonos ni facturación electrónica.
